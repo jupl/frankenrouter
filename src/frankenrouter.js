@@ -4,13 +4,15 @@ import RouteNode from 'route-node'
 const
 observers = {},
 tree = new RouteNode(),
-{base, start, stop} = page
-let onChangeObservers = []
+{base, stop} = page
+let
+onChangeObservers = [],
+urlPrefix = ''
 
 page('*', middleware)
 page('*', handler)
 
-export {base, page, start, stop, tree}
+export {base, page, stop, tree}
 
 export function addRoute(name, path, ...handlers) {
   tree.addNode(name, path)
@@ -23,6 +25,15 @@ export function navigate(...args) {
 
 export function onChange(...handlers) {
   onChangeObservers = onChangeObservers.concat(handlers)
+}
+
+export function start(options = {}) {
+  urlPrefix = options.hashbang ? '#!' : ''
+  page.start(options)
+}
+
+export function url(...args) {
+  return urlPrefix + tree.buildPath(...args)
 }
 
 function buildNames(names, name) {
