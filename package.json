@@ -1,0 +1,39 @@
+{
+  "name": "frankenrouter",
+  "version": "0.0.1",
+  "author": "Juan Placencia",
+  "description": "page.js + named routes",
+  "license": "MIT",
+  "homepage": "https://github.com/jupl/frankenrouter",
+  "main": "./dist/dev/frankenrouter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jupl/frankenrouter"
+  },
+  "keywords": [
+    "page.js",
+    "page",
+    "router",
+    "router-node"
+  ],
+  "scripts": {
+    "precompile": "gulp clean",
+    "compile": "gulp build && gulp build:prod",
+    "lint": "eslint src",
+    "pub": "npm run test && npm run compile && npm run publish",
+    "test": "npm run lint"
+  },
+  "dependencies": {
+    "page": "^1.6.3",
+    "route-node": "^0.2.2"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.22",
+    "babel-eslint": "^4.1.0",
+    "babel-loader": "^5.3.2",
+    "eslint": "^1.2.1",
+    "gulp": "^3.9.0",
+    "rump": "^0.8.1",
+    "rump-scripts": "^0.8.0"
+  }
+}
