@@ -20,7 +20,7 @@
     "precompile": "gulp clean",
     "compile": "gulp build && gulp build:prod",
     "lint": "eslint src",
-    "pub": "npm run test && npm run compile && npm run publish",
+    "pub": "npm run test && npm run compile && npm publish",
     "test": "npm run lint"
   },
   "dependencies": {
